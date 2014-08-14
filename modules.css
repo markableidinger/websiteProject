@@ -1,0 +1,18 @@
+.top-navigation {
+}
+
+.top-navigation__link {
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+.banner {
+  color: #CC0000;
+  text-align: center;
+}
+
+.main-content__image {
+  height : 300px;
+  background-color: white;
+}
