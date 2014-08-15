@@ -26,7 +26,7 @@ function generator_blank(title, content){
   return '<div class="content__image"></div><div class="content__description"><h1>'+title+'</h1><p>'+content+'</p></div>'}
 
 function generator(img, title, content){
-  return '<img src="'+img+'"/></div><div class="content__description"><h1>'+title+'</h1><p>'+content+'</p></div>'}
+  return '<img src="'+img+'" class="content__image"/></div><div class="content__description"><h1>'+title+'</h1><p>'+content+'</p></div>'}
 
 start()
 
