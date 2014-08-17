@@ -3,9 +3,11 @@ genreBox=document.getElementById('genre__selector')
 movieBox=document.getElementById('movie__selector')
 contentBox=document.getElementById('contentBox')
 //movie genres, titles, and descriptions
-var genreTitles=[1,2,3,4,5]
-var titles=['m1','m2','m3','m4','m5','m6','m7','m8','m9','m10']
-var descriptions=['aaa','bbb','ccc','ddd','eee','fff','ggg','hhh','iii','jjj','kkk']
+// var genreTitles=["Psycho Midgets","Nightmare Snakes","Mystery Genre","Demons"] Doesn't work
+
+var genreTitles=[1, 2, 3, 4]
+var titles=["Psycho Killer", "The Army of Midgets", "Nightmare on Boren Avenue", "Snakes on the Enterprise", "Titanic vs Tsunami", "The Man-Eating Shirt", "The Demon of the Stall"]
+var descriptions=["This describes Psycho Killer", "This describes The Army of Midgets", "This describes Nightmare on Boren Avenue", "This describes Snakes on the Enterprise", "This describes Titanic cs Tsunami", "This describes The Man-Eating Shirt", "This describes The Demon of the Stall"]
 var movieGenres=[1,1,2,2,3,3,4,4,5,5]
 //initializes empty catalog
 var catalog = new Catalog()
