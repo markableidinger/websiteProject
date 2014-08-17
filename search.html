@@ -21,28 +21,22 @@
       <div class='one-third column top-navigation current'>CATALOG</div>
       <a href='about.html'><div class='one-third column top-navigation'>ABOUT</div></a>
     <section class='search'>
-      <div class='four columns search__input'>
-        <p>Genre:
-          <select>
-            <option value='slasher'>Slasher</option>
+      <div class='five columns search__input'>
+        <p id='genre' class='search__input-p'>Genre:
+          <select class='search__input-box' id='genre__selector'>
           </select>
         </p>
-        <p>Title:
-          <select>
-            <option value='movie1'>movie1</option>
+        <p id='movie' class='search__input-p'>Title:
+          <select class='search__input-box' id='movie__selector'>
           </select>
         </p>
       </div>
-      <div class='twelve columns content'>
-      <div class='content__image'></div>
-      <div class='content__description-narrow'>
-        <h1>Movie Title</h1>
-        <p>Movie Description</p>
-      </div>
+      <div class='eleven columns content' id='contentBox'>
+
       </div>
     </section>
   </section>
 
 </body>
-
+<script type="text/javascript" src='search.js'></script>
 </html>

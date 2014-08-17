@@ -48,7 +48,7 @@
 }
 
 .content .content__description-narrow {
-  width: 440px
+  width: 380px
 }
 
 .container .content {
@@ -80,5 +80,10 @@
   background-color:#AAA;
   height: 120px;
   border-radius: 10px;
-  margin-top: 10px
+  margin-top: 10px;
+}
+
+.search__input-p {
+  margin-left: 10px;
+  margin-top:20px;
 }
