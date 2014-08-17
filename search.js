@@ -26,16 +26,20 @@ for (i = 0; i < options.length; i++){
   el.value = opt;
   select.appendChild(el);
 }
+var des = document.getElementById("movDescription");
+var tit = document.getElementById("movTitle");
+function changeMovie() {
+  opt = movieDescriptions[i];
+  if (select.selected) {
+    des.textContent = opt[i];
+    tit.textContent = select.selected.textContent;
+  }
+}
 
-select.addEventListener('change', function(){changeMovie(options[i])}, false)
+select.options.addEventListener('change', function(){changeMovie()}, false)
 var movieDescriptions = new Array(options.length);
 var movieDescriptions = ["This describes Psycho Killer", "This describes The Army of Midgets", "This describes Nightmare on Boren Avenue", "This describes Snakes on the Enterprise", "This describes Titanic cs Tsunami", "This describes The Man-Eating Shirt", "This describes The Demon of the Stall"]
 var movieImages = new Array(options.length);
 var movieImages = ["Image1", "Image2", "Image3", "Image4", "Image5", "Image6", "Image7", "Image8"]
 
-// function changeMovie(options[i]) {
-//   if (select.options[i].selected) {
-//     var el = document.createElement("p");
-//     el.textContent = movieDescriptions[i].textContent;
-//   }
-// }
+
