@@ -13,7 +13,7 @@
 .container {
   background-color: #383838;
   margin-top: 0;
-  height: 95%;
+  min-height: 970px;
   border-left: 2px ridge red;
   border-right: 2px ridge red;
 }
@@ -86,4 +86,24 @@
 .search__input-p {
   margin-left: 10px;
   margin-top:20px;
+}
+
+.search__input-box {
+  width: 200px;
+  float: right;
+  margin-right: 10px;
+}
+
+.content__description__title {
+  font-size: 36px
+}
+
+.content__description__header{
+  font-size: 24px;
+  color: #C00;
+}
+
+.content__description__body{
+  font-size: 20px;
+  margin-right: 10px;
 }
