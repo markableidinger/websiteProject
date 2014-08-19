@@ -1,6 +1,6 @@
 
 var $contentBox = $('#content-box');
-var position = 1;
+var position = 0;
 var started = window.setInterval(function(){cycle()}, 5000);
 var catalog = []
 
@@ -31,10 +31,13 @@ makeMovies()
 //concatenates a big ol' string of HTML
 //According to Ryan, it wouldn't be helpful or efficient to make generator and cycle into JQuery
 function generator(img, title, content, subhead){
-  return '<img src="' + img + '" class="content__image"/></div><div class="content__description"><h1 class=\'content__description__title\'>' + title + '</h1><h2 class=\'content__description__header\'>' + subhead + '</h2><p class=\'content__description__body\'>' + content + '</p></div>'}
+  return '<div class="content__image" style="background-image: url('+img+'); background-size: 220px 300px"></div><div class="content__description"><h1 class=\'content__description__title\'>' + title + '</h1><h2 class=\'content__description__header\'>' + subhead + '</h2><p class=\'content__description__body\'>' + content + '</p></div>'}
 
 function cycle(){
+  $contentBox.animate({'opacity':0}, function(){
   $contentBox.html(generator(catalog[position].img, catalog[position].title, catalog[position].description, catalog[position].subhead));
+  });
+  $contentBox.animate({'opacity':1})
   if (position < 2){
     position += 1;
   }
@@ -46,9 +49,15 @@ function cycle(){
 $contentBox.on('mouseover', function(){
   $(this).css({'opacity':0.8});
   window.clearInterval(started);
+  $(this).find('.content__image').html('<br /><br />'+catalog[position].title).css({'font-size':'30px',
+  'font-weight':'bold',
+  'text-align': 'center',
+  '-webkit-text-stroke': '1px white'})
 });
 
 $contentBox.on('mouseout', function(){
   $(this).css({'opacity':1});
   started = window.setInterval(function(){cycle()}, 5000);
+  $(this).find('.content__image').text('')
+
 });
