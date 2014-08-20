@@ -64,15 +64,6 @@ function Catalog() {
   this.contents = []
 }
 
-// function populates select objects, passing in select element and the list of strings to populate it with
-function populateSelect(element, list, type) {
-  element.innerHTML = '<option disabled selected>--Select a ' + type + '--</option>'
-  for (i = 0; i < list.length; i++) {
-    name = list[i]
-    element.innerHTML = element.innerHTML + '<option value="' + name + '">' + name + '</option>'
-  }
-}
-
 //initial functions, populate genre dropdown and populates catalog.contents with the movies
 populateSelect($genreBox[0], genreTitles, 'genre');
 
@@ -95,6 +86,15 @@ $genreBox.change(function() {
   populateSelect($movieBox[0], l, 'movie');
 });
 
+// function populates select objects, passing in select element and the list of strings to populate it with
+function populateSelect(element, list, type) {
+  element.innerHTML = '<option disabled selected>--Select a ' + type + '--</option>'
+  for (i = 0; i < list.length; i++) {
+    name = list[i]
+    element.innerHTML = element.innerHTML + '<option value="' + name + '">' + name + '</option>'
+  }
+}
+
 function generator(img, title, content) {
   return '<img src="' + img + '" class="content__image"/></div><div class="content__description-narrow"><h1 class=\'content__description__title\'>' + title + '</h1><p class=\'content__description__body\'>' + content + '</p></div>'
 }
@@ -116,8 +116,6 @@ $glow.mouseout((function() {
   $(this).css('box-shadow','');
 }));
 
-
-
-
-
-
+$contentBox.click(function() {
+  $(this).html("<img src='images/scare.jpg'/>");
+});
