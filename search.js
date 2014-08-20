@@ -1,11 +1,8 @@
 //HTML element variables
-genreBox = document.getElementById('genre__selector');
-movieBox = document.getElementById('movie__selector');
-contentBox = document.getElementById('contentBox');
-
 $genreBox = $('#genre__selector');
 $movieBox = $('#movie__selector');
 $contentBox = $('#contentBox');
+$header = $('header');
 
 //movie genres, titles, and descriptions
 var genreTitles = ["Psycho Midgets","Nightmare Snakes","Nautical","Demons"]
@@ -66,34 +63,6 @@ function Catalog() {
   this.contents = []
 }
 
-//function populates catalog, no DOM manipulation, hence no jQuery
-function makeMovies(){
-  for (i = 0; i < titles.length; i++) {
-    var m = new Movie(titles[i], descriptions[i], movieGenres[i], images[i])
-    catalog.contents.push(m)
-  }
-}
-
-//function populates movie dropdown
-function populateMovies() {
-  var l = []
-  for(i = 0; i < catalog.contents.length; i++) {
-    if (catalog.contents[i].genre == $genreBox.val()) {
-      l.push(catalog.contents[i].title)
-    }
-  }
-  populateSelect(movieBox, l, 'movie')
-}
-
-//function populates the content box
-function populateContent() {
-  for(i = 0; i < catalog.contents.length; i++) {
-    if (catalog.contents[i].title == $movieBox.val()) {
-      $contentBox.html(generator(catalog.contents[i].img, catalog.contents[i].title, catalog.contents[i].description)
-    )}
-  }
-}
-
 // function populates select objects, passing in select element and the list of strings to populate it with
 
 function populateSelect(element, list, type) {
@@ -104,11 +73,6 @@ function populateSelect(element, list, type) {
   }
 }
 
-
-// function generator_blank(title, content) {
-//   return '<div class="content__image"></div><div class="content__description-narrow"><h1 class=\'content__description__title\'>'+title+'</h1><p class=\'content__description__body\'>'+content+'</p></div>'
-// }
-
 //generates a new content box with new title and content
 function generator(img, title, content) {
   return '<img src="' + img + '" class="content__image"/></div><div class="content__description-narrow"><h1 class=\'content__description__title\'>' + title + '</h1><p class=\'content__description__body\'>' + content + '</p></div>'
@@ -116,11 +80,34 @@ function generator(img, title, content) {
 
 //initial functions, populate genre dropdown and populates catalog.contents with the movies
 populateSelect($genreBox[0], genreTitles, 'genre');
-makeMovies();
 
-//event listener populates movie dropdown when genre is changes
-$genreBox.change(populateMovies);
+//jQuery replaces makeMovies function that populates catalog
+$(function() {
+    for (i = 0; i < titles.length; i++) {
+    var m = new Movie(titles[i], descriptions[i], movieGenres[i], images[i])
+    catalog.contents.push(m)
+  }
+});
 
-//event listener populates content when movie is changes
-$movieBox.change(populateContent);
+//jQuery replaces populateMovies function that populates movie dropdown when genre is changed
+$genreBox.change(function() {
+  var l = []
+  for(i = 0; i < catalog.contents.length; i++) {
+    if (catalog.contents[i].genre == $genreBox.val()) {
+      l.push(catalog.contents[i].title)
+    }
+  }
+  populateSelect($movieBox[0], l, 'movie');
+});
+
+//jQuery replaces populateContent function that populates content when movie is changed
+$movieBox.change(function() {
+  for(i = 0; i < catalog.contents.length; i++) {
+    if (catalog.contents[i].title == $movieBox.val()) {
+      $contentBox.html(generator(catalog.contents[i].img, catalog.contents[i].title, catalog.contents[i].description));
+    }
+  }
+});
+
+
 
