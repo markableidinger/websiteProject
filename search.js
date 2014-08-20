@@ -3,6 +3,7 @@ $genreBox = $('#genre__selector');
 $movieBox = $('#movie__selector');
 $contentBox = $('#contentBox');
 $header = $('header');
+$glow = $('.glow');
 
 //movie genres, titles, and descriptions
 var genreTitles = ["Psycho Midgets","Nightmare Snakes","Nautical","Demons"]
@@ -107,12 +108,12 @@ $movieBox.change(function() {
   }
 });
 
-$contentBox.mouseover((function() {
-  $contentBox.css('box-shadow','0px 0px 20px 5px #C0C0C0');
+$glow.mouseover((function() {
+  $(this).css('box-shadow','0px 0px 20px 5px #C0C0C0');
 }));
 
-$contentBox.mouseout((function() {
-  $contentBox.css('box-shadow','');
+$glow.mouseout((function() {
+  $(this).css('box-shadow','');
 }));
 
 
