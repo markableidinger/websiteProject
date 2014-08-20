@@ -64,18 +64,12 @@ function Catalog() {
 }
 
 // function populates select objects, passing in select element and the list of strings to populate it with
-
 function populateSelect(element, list, type) {
   element.innerHTML = '<option disabled selected>--Select a ' + type + '--</option>'
   for (i = 0; i < list.length; i++) {
     name = list[i]
     element.innerHTML = element.innerHTML + '<option value="' + name + '">' + name + '</option>'
   }
-}
-
-//generates a new content box with new title and content
-function generator(img, title, content) {
-  return '<img src="' + img + '" class="content__image"/></div><div class="content__description-narrow"><h1 class=\'content__description__title\'>' + title + '</h1><p class=\'content__description__body\'>' + content + '</p></div>'
 }
 
 //initial functions, populate genre dropdown and populates catalog.contents with the movies
@@ -100,7 +94,11 @@ $genreBox.change(function() {
   populateSelect($movieBox[0], l, 'movie');
 });
 
-//jQuery replaces populateContent function that populates content when movie is changed
+function generator(img, title, content) {
+  return '<img src="' + img + '" class="content__image"/></div><div class="content__description-narrow"><h1 class=\'content__description__title\'>' + title + '</h1><p class=\'content__description__body\'>' + content + '</p></div>'
+}
+
+// jQuery replaces populateContent function that populates content when movie is changed
 $movieBox.change(function() {
   for(i = 0; i < catalog.contents.length; i++) {
     if (catalog.contents[i].title == $movieBox.val()) {
@@ -108,6 +106,17 @@ $movieBox.change(function() {
     }
   }
 });
+
+$contentBox.mouseover((function() {
+  $contentBox.css('box-shadow','0px 0px 20px 5px #C0C0C0');
+}));
+
+$contentBox.mouseout((function() {
+  $contentBox.css('box-shadow','');
+}));
+
+
+
 
 
 
